@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/files/w3.css">
+<link rel="icon" href="/files/favicon.ico">
+<title>IT Blog Home (As well as other things)</title>
+<style>
+  :root {
+    --dist_from_side: 200px
+  }
+
+  body,
+  html {
+    background-color: #cccccc;
+  }
+
+  .center_text {
+    text-align: center;
+  }
+
+  .blog_content {
+    margin-left: var(--dist_from_side, 200px);
+    margin-right: var(--dist_from_side, 200px);
+  }
+</style>
+
+<body>
+  <!-- Sidebar -->
+  <div class="w3-sidebar w3-dark-grey w3-bar-block" style="width: 200px; box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.45);">
+    <h2 class="w3-bar-item">Side Menu</h2>
+    <a class="w3-bar-item w3-button" href="/posts/Andrew/">Andrew's Posts</a>
+  </div>
+  <!--Main page content-->
+  <div style="margin-left: 200px; height: 100%;">
+    <!--Title-->
+    <div class="w3-container w3-teal" style="text-align: center;">
+      <h1>My Incredible,
+        Completely Original Page</h1>
+    </div>
+    <!--Content-->
+    {%- for blog_post_title in blog_post_titles -%}
+    <div class="w3-panel w3-card-4 w3-white w3-round blog_content">
+      <h2 class="center_text">{{ blog_post_title }}</h2>
+      <p class="w3-section">{{ blog_post_contents[loop.index0] }}</p>
+    </div>
+    {%- endfor -%}
+  </div>
+</body>
+
+</html>
